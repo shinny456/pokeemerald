@@ -1059,6 +1059,7 @@ const u32 gMonStillFrontPic_Chikorita[] = INCBIN_U32("graphics/pokemon/chikorita
 const u32 gMonPalette_Chikorita[] = INCBIN_U32("graphics/pokemon/chikorita/normal.gbapal.lz");
 const u32 gMonBackPic_Chikorita[] = INCBIN_U32("graphics/pokemon/chikorita/back.4bpp.lz");
 const u32 gMonShinyPalette_Chikorita[] = INCBIN_U32("graphics/pokemon/chikorita/shiny.gbapal.lz");
+const u32 gMonPinkPalette_Chikorita[] = INCBIN_U32("graphics/pokemon/chikorita/pink.gbapal.lz");
 const u8 gMonIcon_Chikorita[] = INCBIN_U8("graphics/pokemon/chikorita/icon.4bpp");
 const u8 gMonFootprint_Chikorita[] = INCBIN_U8("graphics/pokemon/chikorita/footprint.1bpp");
 

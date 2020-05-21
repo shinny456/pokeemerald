@@ -214,6 +214,7 @@ struct PokemonStorageSystemData
     u8 field_CD8[2];
     const u32 *cursorMonPalette;
     u32 cursorMonPersonality;
+    bool32 isCursorMonPink;
     u16 cursorMonSpecies;
     u16 cursorMonItem;
     u16 field_CE8;
@@ -6826,7 +6827,8 @@ static void SetCursorMonData(void *pokemon, u8 mode)
             sPSSData->cursorMonLevel = GetLevelFromBoxMonExp(boxMon);
             sPSSData->cursorMonMarkings = GetBoxMonData(boxMon, MON_DATA_MARKINGS);
             sPSSData->cursorMonPersonality = GetBoxMonData(boxMon, MON_DATA_PERSONALITY);
-            sPSSData->cursorMonPalette = GetMonSpritePalFromSpeciesAndPersonality(sPSSData->cursorMonSpecies, otId, sPSSData->cursorMonPersonality);
+            sPSSData->isCursorMonPink = boxMon->isPink;
+            sPSSData->cursorMonPalette = GetMonSpritePalFromSpeciesAndPersonality(sPSSData->cursorMonSpecies, otId, sPSSData->cursorMonPersonality, sPSSData->isCursorMonPink);
             gender = GetGenderFromSpeciesAndPersonality(sPSSData->cursorMonSpecies, sPSSData->cursorMonPersonality);
             sPSSData->cursorMonItem = GetBoxMonData(boxMon, MON_DATA_HELD_ITEM);
         }

@@ -860,7 +860,7 @@ static void sub_80F6404(u8 taskId)
                 personality);
         }
 
-        pokePal = GetMonSpritePalStructFromOtIdPersonality(species, otId, personality);
+        pokePal = GetMonSpritePalStructFromOtIdPersonality(species, otId, personality, FALSE); //todo
         LoadCompressedSpritePalette(pokePal);
         SetMultiuseSpriteTemplateToPokemon(species, B_POSITION_OPPONENT_LEFT);
         gMultiuseSpriteTemplate.paletteTag = pokePal->tag;

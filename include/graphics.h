@@ -1095,6 +1095,7 @@ extern const u32 gMonFrontPic_Chikorita[];
 extern const u32 gMonPalette_Chikorita[];
 extern const u32 gMonBackPic_Chikorita[];
 extern const u32 gMonShinyPalette_Chikorita[];
+extern const u32 gMonPinkPalette_Chikorita[];
 extern const u32 gMonStillFrontPic_Chikorita[];
 extern const u8 gMonIcon_Chikorita[];
 extern const u8 gMonFootprint_Chikorita[];

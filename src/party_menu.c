@@ -4329,7 +4329,7 @@ void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
     struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
     u16 item = gSpecialVar_ItemId;
     bool8 canHeal;
-
+    
     if (NotUsingHPEVItemOnShedinja(mon, item))
     {
         canHeal = IsHPRecoveryItem(item);

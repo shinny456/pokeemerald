@@ -362,7 +362,7 @@ static void VBlankCB_ContestPainting(void)
 
 static void InitContestMonPixels(u16 species, u8 whichSprite)
 {
-    const void *pal = GetMonSpritePalFromSpeciesAndPersonality(species, gContestPaintingWinner->trainerId, gContestPaintingWinner->personality);
+    const void *pal = GetMonSpritePalFromSpeciesAndPersonality(species, gContestPaintingWinner->trainerId, gContestPaintingWinner->personality, FALSE);
     LZDecompressVram(pal, gContestPaintingMonPalette);
     if (whichSprite == 0)
     {

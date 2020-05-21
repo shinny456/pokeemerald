@@ -121,6 +121,7 @@ static EWRAM_DATA struct PokemonSummaryScreenData
         u8 metLevel; // 0xA
         u8 metGame; // 0xB
         u32 pid; // 0xC
+        bool32 isPink; // 0xC
         u32 exp; // 0x10
         u16 moves[MAX_MON_MOVES]; // 0x14
         u8 pp[MAX_MON_MOVES]; // 0x1C
@@ -1360,6 +1361,7 @@ static bool8 ExtractMonDataToSummaryStruct(struct Pokemon *mon)
         sum->abilityNum = GetMonData(mon, MON_DATA_ABILITY_NUM);
         sum->item = GetMonData(mon, MON_DATA_HELD_ITEM);
         sum->pid = GetMonData(mon, MON_DATA_PERSONALITY);
+        sum->isPink = mon->box.isPink;
         sum->sanity = GetMonData(mon, MON_DATA_SANITY_IS_BAD_EGG);
 
         if (sum->sanity)
@@ -3908,7 +3910,7 @@ static u8 CreatePokemonSprite(struct Pokemon *mon, s16 *a1)
             (*a1)++;
             return 0xFF;
         case 1:
-            pal = GetMonSpritePalStructFromOtIdPersonality(summary->species2, summary->OTID, summary->pid);
+            pal = GetMonSpritePalStructFromOtIdPersonality(summary->species2, summary->OTID, summary->pid, summary->isPink);
             LoadCompressedSpritePalette(pal);
             SetMultiuseSpriteTemplateToPokemon(pal->tag, 1);
             (*a1)++;
