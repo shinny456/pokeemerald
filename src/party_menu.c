@@ -1226,6 +1226,19 @@ static void HandleChooseMonSelection(u8 taskId, s8 *slotPtr)
     {
         switch (gPartyMenu.action - 3)
         {
+        case PARTY_ACTION_EVO - 3:
+            {
+              struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
+              u16 targetSpecies = GetEvolutionTargetSpecies(mon, 2, gSpecialVar_0x8008);
+
+              if (targetSpecies != SPECIES_NONE)
+              {
+                  FreePartyPointers();
+                  gCB2_AfterEvolution = gPartyMenu.exitCallback;
+                  BeginEvolutionScene(mon, targetSpecies, 1, gPartyMenu.slotId);
+              }
+            }
+            break;
         case PARTY_ACTION_SOFTBOILED - 3:
             if (IsSelectedMonNotEgg((u8*)slotPtr))
             {
@@ -5685,6 +5698,11 @@ void ChooseMonForMoveTutor(void)
 void ChooseMonForWirelessMinigame(void)
 {
     InitPartyMenu(PARTY_MENU_TYPE_MINIGAME, PARTY_LAYOUT_SINGLE, PARTY_ACTION_MINIGAME, FALSE, PARTY_MSG_CHOOSE_MON_OR_CANCEL, Task_HandleChooseMonInput, CB2_ReturnToFieldContinueScriptPlayMapMusic);
+}
+
+void ChooseMonForEvolution(void)
+{
+    InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_EVO, FALSE, PARTY_MSG_CHOOSE_MON, Task_HandleChooseMonInput, CB2_ReturnToFieldContinueScriptPlayMapMusic);
 }
 
 static u8 GetPartyLayoutFromBattleType(void)
